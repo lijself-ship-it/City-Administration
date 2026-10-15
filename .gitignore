@@ -1,0 +1,41 @@
+﻿# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# PHP / Laravel backend generated files
+/server/.phpunit.cache
+/server/.phpunit.result.cache
+/server/vendor/
+/server/.php-cs-fixer.cache
+/server/storage/*.key
+/server/storage/pail/
+/server/storage/logs/
+/server/storage/framework/cache/
+/server/storage/framework/sessions/
+/server/storage/framework/testing/
+/server/storage/framework/views/
+/server/bootstrap/cache/
+/server/public/build/
+/server/public/hot/
+/server/public/storage
+/server/database/database.sqlite
+
+# Frontend / Node
+/client/node_modules/
+/client/dist/
+/client/dist-ssr/
+/client/*.local
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/
+/.editorconfig
+
+# Generated output, logs, and caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
