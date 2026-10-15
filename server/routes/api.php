@@ -49,19 +49,19 @@ Route::prefix('v1')->group(function () {
     Route::get('/galleries', [TransparencyApiController::class, 'galleries']);
 
     // 7. Interactive Citizen Participation
-    Route::post('/polls/{id}/vote', [InteractiveApiController::class, 'votePoll']);
+    Route::post('/polls/{id}/vote', [InteractiveApiController::class, 'votePoll'])->middleware('throttle:30,1');
     Route::get('/forum/topics', [InteractiveApiController::class, 'forumTopics']);
-    Route::post('/forum/topics', [InteractiveApiController::class, 'createForumTopic']);
+    Route::post('/forum/topics', [InteractiveApiController::class, 'createForumTopic'])->middleware('throttle:20,1');
     Route::post('/forum/topics/{id}/reply', [InteractiveApiController::class, 'replyForumTopic']);
     Route::get('/contact-info', [InteractiveApiController::class, 'contactInfo']);
-    Route::post('/contact/submit', [InteractiveApiController::class, 'submitContact']);
-    Route::post('/newsletter/subscribe', [InteractiveApiController::class, 'subscribeNewsletter']);
+    Route::post('/contact/submit', [InteractiveApiController::class, 'submitContact'])->middleware('throttle:20,1');
+    Route::post('/newsletter/subscribe', [InteractiveApiController::class, 'subscribeNewsletter'])->middleware('throttle:20,1');
 
     // 8. Unified Global Search
     Route::get('/search', [SearchApiController::class, 'search']);
 
     // 9. Authentication
-    Route::post('/auth/login', [AuthApiController::class, 'login']);
+    Route::post('/auth/login', [AuthApiController::class, 'login'])->middleware('throttle:10,1');
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/auth/me', [AuthApiController::class, 'me']);
         Route::post('/auth/logout', [AuthApiController::class, 'logout']);
