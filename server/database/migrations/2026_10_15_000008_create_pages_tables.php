@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_015');
             $table->string('type', 50)->default('custom'); // about, custom, government, explore, contact
             $table->string('template', 100)->nullable();
             $table->string('featured_image', 500)->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('meta_title', 255)->nullable();
             $table->text('meta_description')->nullable();
-            $table->unique(['page_id', 'locale'], 'unq');
+            $table->unique(['page_id', 'locale'], 'uq_014');
         });
     }
 

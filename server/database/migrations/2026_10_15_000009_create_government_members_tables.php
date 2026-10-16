@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('title', 255); // position/title
             $table->text('bio')->nullable();
-            $table->unique(['government_member_id', 'locale'], 'unq');
+            $table->unique(['government_member_id', 'locale'], 'uq_016');
         });
     }
 

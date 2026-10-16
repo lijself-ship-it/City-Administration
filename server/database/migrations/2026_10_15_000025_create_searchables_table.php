@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('url', 500);
             $table->timestamps();
-            $table->unique(['searchable_type', 'searchable_id', 'locale'], 'searchables_unique');
+            $table->unique(['searchable_type', 'searchable_id', 'locale'], 'uq_055');
             $table->index(['searchable_type', 'searchable_id']);
         });
     }

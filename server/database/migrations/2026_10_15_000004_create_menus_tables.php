@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('menu_id')->constrained('menus','id','fk_004')->cascadeOnDelete();
             $table->string('locale', 5);
             $table->string('title', 255);
-            $table->unique(['menu_id', 'locale'], 'unq');
+            $table->unique(['menu_id', 'locale'], 'uq_008');
         });
 
         Schema::create('menu_items', function (Blueprint $table) {
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->foreignId('menu_item_id')->constrained('menu_items','id','fk_007')->cascadeOnDelete();
             $table->string('locale', 5);
             $table->string('label', 255);
-            $table->unique(['menu_item_id', 'locale'], 'unq');
+            $table->unique(['menu_item_id', 'locale'], 'uq_009');
         });
     }
 

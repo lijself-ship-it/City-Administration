@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->text('description')->nullable();
             $table->text('address')->nullable();
-            $table->unique(['government_department_id', 'locale'], 'unq');
+            $table->unique(['government_department_id', 'locale'], 'uq_017');
         });
     }
 

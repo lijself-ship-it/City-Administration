@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('site_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('key', 100)->unique('unq_key'); // logo, favicon, site_name, etc.
+            $table->string('key', 100)->unique('uq_012'); // logo, favicon, site_name, etc.
             $table->text('value')->nullable(); // non-translatable value (e.g., image path)
             $table->timestamps();
         });
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('site_info_id')->constrained('site_infos','id','fk_009')->cascadeOnDelete();
             $table->string('locale', 5);
             $table->text('value');
-            $table->unique(['site_info_id', 'locale'], 'unq');
+            $table->unique(['site_info_id', 'locale'], 'uq_011');
         });
     }
 

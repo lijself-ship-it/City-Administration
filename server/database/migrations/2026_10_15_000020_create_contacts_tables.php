@@ -29,7 +29,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('office_name', 255)->nullable();
             $table->string('working_hours', 255)->nullable();
-            $table->unique(['contact_id', 'locale'], 'unq');
+            $table->unique(['contact_id', 'locale'], 'uq_043');
         });
 
         Schema::create('contact_submissions', function (Blueprint $table) {

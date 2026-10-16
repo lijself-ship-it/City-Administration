@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_023');
             $table->date('deadline');
             $table->string('salary_range', 100)->nullable();
             $table->boolean('is_published')->default(false);
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->longText('requirements')->nullable();
             $table->string('department', 255)->nullable();
             $table->string('location', 255)->nullable();
-            $table->unique(['vacancy_id', 'locale'], 'unq');
+            $table->unique(['vacancy_id', 'locale'], 'uq_022');
         });
     }
 

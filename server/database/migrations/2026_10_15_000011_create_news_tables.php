@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_019');
             $table->string('featured_image', 500)->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_published')->default(false);
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('meta_title', 255)->nullable();
             $table->text('meta_description')->nullable();
-            $table->unique(['news_id', 'locale'], 'unq');
+            $table->unique(['news_id', 'locale'], 'uq_018');
         });
     }
 

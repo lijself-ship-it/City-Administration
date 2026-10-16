@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 5)->unique('unq_code');
+            $table->string('code', 5)->unique('uq_004');
             $table->string('name', 50);
             $table->enum('direction', ['ltr', 'rtl'])->default('ltr');
             $table->boolean('is_default')->default(false);

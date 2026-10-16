@@ -14,7 +14,7 @@ return new class extends Migration
         // Forum Categories
         Schema::create('forum_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_047');
             $table->integer('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('name', 255);
             $table->text('description')->nullable();
-            $table->unique(['forum_category_id', 'locale'], 'unq');
+            $table->unique(['forum_category_id', 'locale'], 'uq_045');
         });
 
         // Forum Topics
@@ -34,7 +34,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('forum_category_id')->constrained('forum_categories','id','fk_044')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users','id','fk_045')->cascadeOnDelete();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_048');
             $table->boolean('is_pinned')->default(false);
             $table->boolean('is_locked')->default(false);
             $table->unsignedInteger('views_count')->default(0);
@@ -48,7 +48,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->longText('content');
-            $table->unique(['forum_topic_id', 'locale'], 'unq');
+            $table->unique(['forum_topic_id', 'locale'], 'uq_046');
         });
 
         // Forum Replies (threaded via parent_id)

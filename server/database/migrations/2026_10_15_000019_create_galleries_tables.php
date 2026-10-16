@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_042');
             $table->string('featured_image', 500)->nullable();
             $table->integer('sort_order')->default(0);
             $table->boolean('is_published')->default(false);
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->text('description')->nullable();
-            $table->unique(['gallery_id', 'locale'], 'unq');
+            $table->unique(['gallery_id', 'locale'], 'uq_040');
         });
 
         Schema::create('gallery_items', function (Blueprint $table) {
@@ -46,7 +46,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('caption', 500)->nullable();
             $table->string('alt_text', 255)->nullable();
-            $table->unique(['gallery_item_id', 'locale'], 'unq');
+            $table->unique(['gallery_item_id', 'locale'], 'uq_041');
         });
     }
 

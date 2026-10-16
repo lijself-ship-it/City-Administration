@@ -23,7 +23,7 @@ return new class extends Migration
 
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
-            $table->string('email', 255)->unique('unq_email');
+            $table->string('email', 255)->unique('uq_044');
             $table->boolean('is_active')->default(true);
             $table->timestamp('subscribed_at')->useCurrent();
             $table->timestamp('unsubscribed_at')->nullable();

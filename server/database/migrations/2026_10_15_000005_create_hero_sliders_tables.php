@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('title', 255);
             $table->text('subtitle')->nullable();
             $table->string('button_text', 100)->nullable();
-            $table->unique(['hero_slider_id', 'locale'], 'unq');
+            $table->unique(['hero_slider_id', 'locale'], 'uq_010');
         });
     }
 

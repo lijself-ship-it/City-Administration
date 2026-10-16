@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_028');
             $table->string('type', 20); // text, step
             $table->string('icon', 100)->nullable();
             $table->string('featured_image', 500)->nullable();
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->longText('description');
-            $table->unique(['service_id', 'locale'], 'unq');
+            $table->unique(['service_id', 'locale'], 'uq_026');
         });
 
         Schema::create('service_steps', function (Blueprint $table) {
@@ -46,7 +46,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->text('description');
-            $table->unique(['service_step_id', 'locale'], 'unq');
+            $table->unique(['service_step_id', 'locale'], 'uq_027');
         });
     }
 

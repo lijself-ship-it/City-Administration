@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50)->unique('unq_name');
-            $table->string('slug', 50)->unique('unq_slug');
+            $table->string('name', 50)->unique('uq_005');
+            $table->string('slug', 50)->unique('uq_006');
             $table->timestamps();
         });
 
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique('unq_name');
+            $table->string('name', 100)->unique('uq_007');
             $table->string('group', 50);
             $table->timestamps();
         });

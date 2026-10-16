@@ -14,7 +14,7 @@ return new class extends Migration
         // Resource filters (categories for filtering)
         Schema::create('resource_filters', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_038');
             $table->integer('sort_order')->default(0);
             $table->timestamps();
         });
@@ -24,13 +24,13 @@ return new class extends Migration
             $table->foreignId('resource_filter_id')->constrained('resource_filters','id','fk_034')->cascadeOnDelete();
             $table->string('locale', 5);
             $table->string('name', 255);
-            $table->unique(['resource_filter_id', 'locale'], 'unq');
+            $table->unique(['resource_filter_id', 'locale'], 'uq_036');
         });
 
         // Resources (downloadable files)
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_039');
             $table->string('file_path', 500);
             $table->string('file_type', 50); // pdf, doc, xls, etc.
             $table->unsignedBigInteger('file_size'); // bytes
@@ -47,7 +47,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->text('description')->nullable();
-            $table->unique(['resource_id', 'locale'], 'unq');
+            $table->unique(['resource_id', 'locale'], 'uq_037');
         });
 
         // Pivot: resources <-> resource_filters (M:N)

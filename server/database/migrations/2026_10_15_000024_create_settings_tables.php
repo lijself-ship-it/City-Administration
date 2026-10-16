@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('key', 100)->unique('unq_key');
+            $table->string('key', 100)->unique('uq_054');
             $table->text('value')->nullable();
             $table->timestamps();
         });
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('setting_id')->constrained('settings','id','fk_056')->cascadeOnDelete();
             $table->string('locale', 5);
             $table->text('value');
-            $table->unique(['setting_id', 'locale'], 'unq');
+            $table->unique(['setting_id', 'locale'], 'uq_053');
         });
     }
 

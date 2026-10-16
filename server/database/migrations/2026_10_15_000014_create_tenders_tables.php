@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_025');
             $table->string('reference_number', 100)->nullable();
             $table->date('opening_date');
             $table->date('closing_date');
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->longText('description');
-            $table->unique(['tender_id', 'locale'], 'unq');
+            $table->unique(['tender_id', 'locale'], 'uq_024');
         });
     }
 

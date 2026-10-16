@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_035');
             $table->string('featured_image', 500)->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('title', 255);
             $table->longText('description');
             $table->longText('objectives')->nullable();
-            $table->unique(['program_id', 'locale'], 'unq');
+            $table->unique(['program_id', 'locale'], 'uq_034');
         });
     }
 

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('title', 255);
             $table->text('description')->nullable();
-            $table->unique(['emergency_contact_id', 'locale'], 'unq');
+            $table->unique(['emergency_contact_id', 'locale'], 'uq_013');
         });
     }
 

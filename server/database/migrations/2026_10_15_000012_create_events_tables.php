@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 255)->unique('unq_slug');
+            $table->string('slug', 255)->unique('uq_021');
             $table->string('featured_image', 500)->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('title', 255);
             $table->longText('description');
             $table->string('venue', 255)->nullable();
-            $table->unique(['event_id', 'locale'], 'unq');
+            $table->unique(['event_id', 'locale'], 'uq_020');
         });
     }
 
